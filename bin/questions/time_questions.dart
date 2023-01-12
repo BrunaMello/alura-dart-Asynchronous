@@ -1,27 +1,27 @@
 import 'dart:io';
 
 
-//implementar o Timing!
+//implementing the Timing!
 
 class TimeQuestions{
-  String hour = 'Que horas sao?';
-  String day = 'Que dia e hoje?';
-  String year = 'Em que ano estamos?';
+  String hour = 'What time is it?';
+  String day = 'What day is today?';
+  String year = 'What year are we?';
   String question;
   DateTime date = DateTime.now();
-  String kakoBot = 'KakoBOT:\n';
+  String BrunaBot = 'BrunaBOT:\n';
   bool isThisATimeQuestion = false;
 
   TimeQuestions(this.question);
 
   bool isThisTime(){
-    //verificar se estamos numa pergunta sobre Tempo
-    if (question.contains('horas') ||
-        question.contains('Horas') ||
-        question.contains('dia') ||
-        question.contains('Dia') ||
-        question.contains('ano') ||
-        question.contains('Ano')) {
+    //check if the question is about time
+    if (question.contains('hours') ||
+        question.contains('Hours') ||
+        question.contains('day') ||
+        question.contains('Day') ||
+        question.contains('year') ||
+        question.contains('Year')) {
       isThisATimeQuestion = true;
     }
     return isThisATimeQuestion;
@@ -31,15 +31,15 @@ class TimeQuestions{
 
     if (question == hour) {
 
-      String _botAnswer = kakoBot + ' Opa! são : ${date.hour} horas e ${date.minute} minutos!';
+      String _botAnswer = BrunaBot + ' Hi! it is: ${date.hour} hours and ${date.minute} minutes!';
       print(_botAnswer);
     } else if (question == day) {
 
-      String _botAnswer = kakoBot + ' Opa! hoje é dia : ${date.day}';
+      String _botAnswer = BrunaBot + ' Hi! Today is : ${date.day}';
       print(_botAnswer);
     } else if (question == year) {
 
-      String _botAnswer = kakoBot + ' Opa! estamos em : ${date.year}';
+      String _botAnswer = BrunaBot + ' Hi! We are in : ${date.year}';
       print(_botAnswer);
     } else {
       unsure();
@@ -47,51 +47,51 @@ class TimeQuestions{
   }
 
   unsure() {
-    if (question.contains('horas') || question.contains('Horas')) {
+    if (question.contains('hours') || question.contains('Hours')) {
 
       String _botQuestion =
-          kakoBot + ' Não entendi, você quer saber das horas?';
+          BrunaBot + ' I did not understand, would you like to know about hours?';
       print(_botQuestion);
       String answer = stdin.readLineSync().toString();
-      if (answer.contains('Sim') || answer.contains('sim')) {
+      if (answer.contains('Yes') || answer.contains('yes')) {
 
-        String _botAnswer = kakoBot + ' Beleza, são : ${date.hour} horas e ${date.minute} minutos!';
+        String _botAnswer = BrunaBot + ' Right, now is: ${date.hour} hours and ${date.minute} minutes!';
         print(_botAnswer);
       } else {
 
-        String _botAnswer = kakoBot + ' Ah, foi mal... entendi errado.';
+        String _botAnswer = BrunaBot + ' Oh, my bad... I understood wrong.';
         print(_botAnswer);
       }
-    } else if (question.contains('dia') || question.contains('Dia')) {
+    } else if (question.contains('day') || question.contains('Day')) {
 
       String _botQuestion =
-          kakoBot + ' Não entendi, você quer saber que dia é hoje?';
+          BrunaBot + 'I did not understand. You would like to know what day is today?';
       print(_botQuestion);
       String answer = stdin.readLineSync().toString();
-      if (answer.contains('Sim') || answer.contains('sim')) {
+      if (answer.contains('Yes') || answer.contains('yes')) {
 
-        String _botAnswer = kakoBot + ' Beleza, hoje é dia: ${date.day}';
+        String _botAnswer = BrunaBot + ' Right, today is: ${date.day}';
         print(_botAnswer);
       } else {
 
-        String _botAnswer = kakoBot + ' Ah, foi mal... entendi errado.';
+        String _botAnswer = BrunaBot + ' Oh, my bad... I understood wrong.';
         print(_botAnswer);
       }
-    } else if (question.contains('ano') || question.contains('Ano')) {
+    } else if (question.contains('year') || question.contains('Year')) {
 
       String _botQuestion =
-          kakoBot + ' Não entendi, você quer saber em que ano estamos?';
+          BrunaBot + ' I did not understand. You would like to know what year it is?';
       print(_botQuestion);
       String answer = stdin.readLineSync().toString();
-      if (answer.contains('Sim') || answer.contains('sim')) {
+      if (answer.contains('Yes') || answer.contains('yes')) {
 
-        String _botAnswer = kakoBot +
-            ' Beleza, estamos no ano de 2077, a pandemia já está terminando... \n '
-                'Brincadeirinha! estamos em : ${date.year}';
+        String _botAnswer = BrunaBot +
+            ' Alright, it is the year 2077, the pandemic is already ending... \n '
+                'I am joking :)! We are in : ${date.year}';
         print(_botAnswer);
       } else {
 
-        String _botAnswer = kakoBot + ' Ah, foi mal... entendi errado.';
+        String _botAnswer = BrunaBot + ' Oh, my bad... I understood wrong.';
         print(_botAnswer);
       }
     }
