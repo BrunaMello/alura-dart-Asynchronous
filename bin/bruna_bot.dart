@@ -9,6 +9,15 @@ void main() async {
   var a = true;
   String user = '';
 
+  var myStream = BotClock().brunaBotStream(1, 10);
+  var subscriber = myStream.listen((event) {
+    print('                                    BrunaBot is active for $event seconds');
+  },onDone: (){
+    print('BrunaBot is finishing its work, ask the last question');
+    a = false;
+  }
+  );
+
   print('-- Initializing the BrunaBOT, wait..--');
   await BotClock().clock(2);
 
@@ -24,11 +33,11 @@ void main() async {
       a = false;
       print(BrunaBot + 'Bye, See you soon!!');
     } else if (TimeQuestions(user).isThisTime()) {
-      // verificar antes, assim não fazemos toda a função sem precisar.
+      //check before, so we don't do the whole function without needing to.
       await BotClock().clock(2);
       TimeQuestions(user).timeQuestion();
     } else if (false) {
-      //Basta adicionar novas perguntas aqui!
+      //new questions
     } else {
       await BotClock().clock(2);
       print(BrunaBot +
